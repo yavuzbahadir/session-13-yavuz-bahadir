@@ -1,0 +1,27 @@
+class Student:
+    def __init__(self, first_name, last_name, district_code, enrolled_credits):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.district_code = district_code
+        self.enrolled_credits = enrolled_credits
+
+    def compute_tuition(self):
+        """Calculate tuition based on district code and enrolled credits."""
+        if self.district_code.upper() == "I":
+            tuition_rate = 250
+        else:
+            tuition_rate = 500
+        return self.enrolled_credits * tuition_rate
+
+    def display_student(self):
+        return f"Student: {self.first_name} {self.last_name}, District Code: {self.district_code}, Enrolled Credits: {self.enrolled_credits}"
+
+
+# Testing the Student class
+student1 = Student("Jane", "Smith", "I", 12)
+print(student1.display_student())
+print(f"Tuition Owed: ${student1.compute_tuition():.2f}")
+
+student2 = Student("Alex", "Johnson", "O", 15)
+print(student2.display_student())
+print(f"Tuition Owed: ${student2.compute_tuition():.2f}")
